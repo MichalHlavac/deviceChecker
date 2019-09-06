@@ -4,6 +4,7 @@ import {UserContext} from '../containers/UserContext';
 import {AddForm} from '../components/styledAddForm';
 
 export default ()=>{
+    const reset =()=>document.getElementById("addForm").reset();
     const [user,setUser]=useContext(UserContext);
     const [newDevice,setNewDevice]=useState({});
     const handleChange = (e) => {setNewDevice({ ...newDevice, [e.target.name]: e.target.value })};
@@ -13,13 +14,14 @@ export default ()=>{
         {headers:{'Accept':'application/json','Content-Type': 'application/json',"Auth-Token":user.token}})
         .then(res=>{
             console.log(res.data);
+            reset();
         })
         .catch(error => {
             console.log(error.response);
         });
     };
     return(
-        <AddForm onSubmit={handleSubmit}>
+        <AddForm onSubmit={handleSubmit} id="addForm">
             <h2>Nové zařízení</h2>
             <input type="text" name="code" onChange={handleChange} placeholder="Kódové označení(identifikátor)" required/>
             <input type="text" name="os" onChange={handleChange} placeholder="Operační systém" required/>
