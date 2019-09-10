@@ -1,6 +1,6 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle= createGlobalStyle `
+const GlobalStyle = createGlobalStyle`
 body{
     width:100%;
     height:100%;
@@ -9,5 +9,5 @@ body{
     font-family:Arial, Helvetica, sans-serif;
     background-color:#DCDCDC;
 }
-`
-export {GlobalStyle};
+`;
+export { GlobalStyle };
